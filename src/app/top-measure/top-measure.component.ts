@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MeasureService } from '../measure.service';
 
 @Component({
   selector: 'app-top-measure',
@@ -7,15 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopMeasureComponent implements OnInit {
 
-  measure = {
-    "id": 3520,
-    "type": "TEMPERATURE",
-    "unit": "CELSIUS",
-    "value": 20.90,
-    "measureDate": "2021-04-17T11:40:18.513055"
-  };
+  measure = this.measureService.getTopMeasure();
 
-  constructor() { }
+  constructor(private measureService: MeasureService) { }
 
   ngOnInit(): void {
   }

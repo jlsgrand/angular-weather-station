@@ -11,14 +11,28 @@
 <section>
   <p>Quelle mesure vous intéresse ?</p>
 
-  <label for="type-select">Type de mesure</label>
-  <select id="type-select">
-    <option value="TEMPERATURE">Température</option>
-    <option value="PRESSURE">Pression</option>
-    <option value="HUMIDITY">Humidité</option>
-    <option value="CO2">CO2</option>
-    <option value="VOC">VOC</option>
-  </select>
+  <form [formGroup]="typeForm" (ngSubmit)="onTypeChoice()">
+    <label for="type-select">Type de mesure</label>
+    <select id="type-select" formControlName="type">
+      <option value="TEMPERATURE">Température</option>
+      <option value="PRESSURE">Pression</option>
+      <option value="HUMIDITY">Humidité</option>
+      <option value="CO2">CO2</option>
+      <option value="VOC">VOC</option>
+    </select>
+    <button type="submit">Mettre à jour le type de mesure</button>
+  </form>
+
+</section>
+
+<section id="date-picker">
+  <form id="date-picker-form" [formGroup]="dateForm" (ngSubmit)="onDateChoice()">
+    <label for="frmStartDate">Date de début</label>
+    <input id="frmStartDate" name="startDate" type="datetime-local" required="true" formControlName="startDate">
+    <label for="frmEndDate">Date de fin</label>
+    <input id="frmEndDate" name="endDate" type="datetime-local" required="true" formControlName="endDate">
+    <button type="submit">Rafraîchir les dates</button>
+  </form>
 </section>
 
 <section id="weather-content">

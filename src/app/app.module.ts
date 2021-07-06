@@ -7,6 +7,7 @@ import {TopMeasureComponent} from './top-measure/top-measure.component';
 import {TabMeasureComponent} from './tab-measure/tab-measure.component';
 import {RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {HttpClientModule} from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot([
       { path: '', component: LastMeasureComponent },
